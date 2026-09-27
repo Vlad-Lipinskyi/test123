@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GameHub — каталог игр</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./css/global.css" />
     <link rel="stylesheet" href="./css/index.css" />
   </head>
@@ -15,32 +22,54 @@
         <a href="./index.html" class="logo"> Game<span>Hub</span> </a>
 
         <nav class="nav">
-          <a href="./index.html" class="nav__link active"> Игры </a>
+          <a href="./index.html" class="nav__link active" data-i18n="games">
+            Игры
+          </a>
 
-          <a href="./platforms.html" class="nav__link"> Платформы </a>
+          <a href="./platforms.html" class="nav__link" data-i18n="platforms">
+            Платформы
+          </a>
 
-          <a href="./favorites.html" class="nav__link"> Избранное </a>
+          <a href="./favorites.html" class="nav__link" data-i18n="favorites">
+            Избранное
+          </a>
         </nav>
 
-        <label class="theme-switch">
-          <input type="checkbox" id="themeToggle" />
+        <div class="header__actions">
+          <div class="language-switch">
+            <button
+              type="button"
+              class="language-button active"
+              data-language="ru"
+            >
+              RU
+            </button>
 
-          <span class="theme-switch__slider">
-            <img
-              src="./assets/svg/sun.svg"
-              class="theme-switch__icon theme-switch__sun"
-              alt=""
-            />
+            <button type="button" class="language-button" data-language="en">
+              EN
+            </button>
+          </div>
 
-            <img
-              src="./assets/svg/moon.svg"
-              class="theme-switch__icon theme-switch__moon"
-              alt=""
-            />
+          <label class="theme-switch">
+            <input type="checkbox" id="themeToggle" />
 
-            <span class="theme-switch__circle"></span>
-          </span>
-        </label>
+            <span class="theme-switch__slider">
+              <img
+                src="./assets/svg/sun.svg"
+                class="theme-switch__icon theme-switch__sun"
+                alt=""
+              />
+
+              <img
+                src="./assets/svg/moon.svg"
+                class="theme-switch__icon theme-switch__moon"
+                alt=""
+              />
+
+              <span class="theme-switch__circle"></span>
+            </span>
+          </label>
+        </div>
       </div>
     </header>
 
@@ -48,14 +77,14 @@
       <section class="hero">
         <div class="container">
           <div class="hero__content">
-            <p class="hero__subtitle">GAME CATALOG</p>
+            <p class="hero__subtitle" data-i18n="gameCatalog">GAME CATALOG</p>
 
-            <h1>
+            <h1 data-i18n="heroTitle">
               Мир видеоигр<br />
               в одном месте
             </h1>
 
-            <p class="hero__description">
+            <p class="hero__description" data-i18n="heroDescription">
               Находи любимые игры, изучай платформы и добавляй игры в избранное.
             </p>
           </div>
@@ -66,15 +95,27 @@
         <div class="container">
           <div class="catalog__top">
             <div>
-              <h2>Каталог игр</h2>
+              <h2 data-i18n="catalogTitle">Каталог игр</h2>
 
-              <p class="catalog__description">Найди игру по своему вкусу</p>
+              <p class="catalog__description" data-i18n="catalogDescription">
+                Найди игру по своему вкусу
+              </p>
             </div>
 
             <div class="search">
-              <input type="text" id="searchInput" placeholder="Поиск игры..." />
+              <input
+                type="text"
+                id="searchInput"
+                data-i18n-placeholder="searchPlaceholder"
+                placeholder="Поиск игры..."
+              />
 
-              <button id="searchButton" type="button" aria-label="Поиск">
+              <button
+                id="searchButton"
+                type="button"
+                data-i18n-aria-label="searchLabel"
+                aria-label="Поиск"
+              >
                 <img src="./assets/svg/magnifying-glass.svg" alt="" />
               </button>
             </div>
@@ -82,46 +123,72 @@
 
           <div class="catalog-controls">
             <div class="filter-group">
-              <span class="filter-label"> Платформа </span>
+              <span class="filter-label" data-i18n="platform"> Платформа </span>
 
               <div class="filters">
-                <button class="filter-button active" data-platform="">
+                <button
+                  class="filter-button active"
+                  data-platform=""
+                  data-i18n="all"
+                >
                   Все
                 </button>
 
-                <button class="filter-button" data-platform="4">PC</button>
+                <button class="filter-button" data-platform="4" data-i18n="pc">
+                  PC
+                </button>
 
-                <button class="filter-button" data-platform="18">
+                <button
+                  class="filter-button"
+                  data-platform="18"
+                  data-i18n="playstation"
+                >
                   PlayStation 4
                 </button>
 
-                <button class="filter-button" data-platform="1">
+                <button
+                  class="filter-button"
+                  data-platform="1"
+                  data-i18n="xbox"
+                >
                   Xbox One
                 </button>
 
-                <button class="filter-button" data-platform="7">
+                <button
+                  class="filter-button"
+                  data-platform="7"
+                  data-i18n="switch"
+                >
                   Nintendo Switch
                 </button>
               </div>
             </div>
 
             <div class="sort-group">
-              <label class="filter-label" for="sortSelect"> Сортировка </label>
+              <label class="filter-label" for="sortSelect" data-i18n="sorting">
+                Сортировка
+              </label>
 
               <div class="sort-control">
                 <div class="select-wrapper">
                   <select id="sortSelect">
-                    <option value="rating">По рейтингу</option>
+                    <option value="rating" data-i18n="rating">
+                      По рейтингу
+                    </option>
 
-                    <option value="released">По дате выхода</option>
+                    <option value="released" data-i18n="released">
+                      По дате выхода
+                    </option>
 
-                    <option value="added">По популярности</option>
+                    <option value="added" data-i18n="popularity">
+                      По популярности
+                    </option>
 
-                    <option value="name">По названию</option>
+                    <option value="name" data-i18n="name">По названию</option>
                   </select>
 
                   <img
-                    src="./assets/svg/arrow-down-search.svg"
+                    src="./assets/svg/arrow-down-filter.svg"
                     class="select-arrow"
                     alt=""
                   />
@@ -131,6 +198,8 @@
                   type="button"
                   id="sortDirection"
                   class="sort-direction"
+                  data-i18n-aria-label="sortDirection"
+                  data-i18n-title="sortDirection"
                   aria-label="Изменить направление сортировки"
                   title="Изменить направление сортировки"
                 >
@@ -144,7 +213,9 @@
             </div>
 
             <div class="view-group">
-              <span class="filter-label"> Игр в ряд </span>
+              <span class="filter-label" data-i18n="gamesPerRow">
+                Игр в ряд
+              </span>
 
               <div class="view-buttons">
                 <button class="view-button" data-columns="3">3</button>
@@ -157,31 +228,50 @@
           </div>
 
           <div id="gamesContainer" class="games-grid">
-            <div class="loader">Загрузка игр...</div>
+            <div class="loader" data-i18n="loading">Загрузка игр...</div>
           </div>
 
           <div class="pagination">
-            <button id="prevButton" class="pagination__arrow" disabled>
+            <button
+              id="prevButton"
+              class="pagination__arrow"
+              disabled
+              data-i18n="previous"
+            >
               ← Назад
             </button>
 
             <span id="pageNumber">1</span>
 
-            <button id="nextButton" class="pagination__arrow">Вперёд →</button>
+            <button id="nextButton" class="pagination__arrow" data-i18n="next">
+              Вперёд →
+            </button>
           </div>
         </div>
       </section>
     </main>
 
+    <button
+      id="scrollTopButton"
+      class="scroll-top"
+      type="button"
+      data-i18n-aria-label="scrollTop"
+      aria-label="Наверх"
+    >
+      <img src="./assets/svg/arrow-up.svg" alt="" />
+    </button>
+
     <footer class="footer">
       <div class="container">
         <p>© 2026 GameHub</p>
-        <p>Powered by RAWG</p>
+
+        <p data-i18n="footerPowered">Powered by RAWG</p>
       </div>
     </footer>
 
     <script src="./js/theme.js"></script>
     <script src="./js/api.js"></script>
+    <script src="./js/language.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

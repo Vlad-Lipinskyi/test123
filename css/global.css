@@ -78,7 +78,11 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--surface) 90%,
+    transparent
+  );
   backdrop-filter: blur(15px);
   border-bottom: 1px solid var(--border);
 }
@@ -89,6 +93,13 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .logo {
@@ -121,7 +132,51 @@ button {
 
 .nav__link.active {
   color: var(--accent);
-  background: color-mix(in srgb, var(--accent) 12%, transparent);
+  background: color-mix(
+    in srgb,
+    var(--accent) 12%,
+    transparent
+  );
+}
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--surface-hover);
+}
+
+.language-button {
+  min-width: 34px;
+  height: 28px;
+  padding: 0 7px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background var(--transition),
+    color var(--transition),
+    transform var(--transition);
+}
+
+.language-button:hover {
+  color: var(--text);
+}
+
+.language-button.active {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.language-button:active {
+  transform: scale(0.94);
 }
 
 .theme-switch {
@@ -245,13 +300,29 @@ body.dark .theme-switch__slider {
 }
 
 .sort-direction img,
+#sortDirectionIcon,
 .sort-arrow img,
 .filter-arrow img,
-.arrow-icon {
-  width: 16px;
-  height: 16px;
+.arrow-icon,
+.select-arrow,
+img[src$="arrow-up.svg"],
+img[src$="arrow-down.svg"] {
+  width: 16px !important;
+  height: 16px !important;
   object-fit: contain;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) !important;
+  transition: filter var(--transition);
+}
+
+body.dark .sort-direction img,
+body.dark #sortDirectionIcon,
+body.dark .sort-arrow img,
+body.dark .filter-arrow img,
+body.dark .arrow-icon,
+body.dark .select-arrow,
+body.dark img[src$="arrow-up.svg"],
+body.dark img[src$="arrow-down.svg"] {
+  filter: brightness(0) invert(1) !important;
 }
 
 .scroll-top {
@@ -306,6 +377,20 @@ body.dark .theme-switch__slider {
   filter: brightness(0) invert(1);
 }
 
+@media (max-width: 900px) {
+  .header__inner {
+    gap: 15px;
+  }
+
+  .nav {
+    gap: 3px;
+  }
+
+  .nav__link {
+    padding: 9px 10px;
+  }
+}
+
 @media (max-width: 700px) {
   .header__inner {
     min-height: 64px;
@@ -313,6 +398,10 @@ body.dark .theme-switch__slider {
 
   .nav {
     display: none;
+  }
+
+  .header__actions {
+    margin-left: auto;
   }
 
   .footer .container {
