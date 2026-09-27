@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameHub — каталог игр</title>
+
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="container header__inner">
+        <a href="./index.html" class="logo"> Game<span>Hub</span> </a>
+
+        <nav class="nav">
+          <a href="./index.html" class="nav__link active"> Игры </a>
+
+          <a href="./platforms.html" class="nav__link"> Платформы </a>
+
+          <a href="./favorites.html" class="nav__link"> Избранное </a>
+        </nav>
+
+        <label class="theme-switch">
+          <input type="checkbox" id="themeToggle" />
+
+          <span class="theme-switch__slider">
+            <img
+              src="./assets/svg/sun.svg"
+              class="theme-switch__icon theme-switch__sun"
+              alt=""
+            />
+
+            <img
+              src="./assets/svg/moon.svg"
+              class="theme-switch__icon theme-switch__moon"
+              alt=""
+            />
+
+            <span class="theme-switch__circle"></span>
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="hero__content">
+            <p class="hero__subtitle">GAME CATALOG</p>
+
+            <h1>
+              Мир видеоигр<br />
+              в одном месте
+            </h1>
+
+            <p class="hero__description">
+              Находи любимые игры, изучай платформы и добавляй игры в избранное.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalog">
+        <div class="container">
+          <div class="catalog__top">
+            <div>
+              <h2>Каталог игр</h2>
+
+              <p class="catalog__description">Найди игру по своему вкусу</p>
+            </div>
+
+            <div class="search">
+              <input type="text" id="searchInput" placeholder="Поиск игры..." />
+
+              <button id="searchButton" type="button" aria-label="Поиск">
+                <img src="./assets/svg/magnifying-glass.svg" alt="" />
+              </button>
+            </div>
+          </div>
+
+          <div class="catalog-controls">
+            <div class="filter-group">
+              <span class="filter-label"> Платформа </span>
+
+              <div class="filters">
+                <button class="filter-button active" data-platform="">
+                  Все
+                </button>
+
+                <button class="filter-button" data-platform="4">PC</button>
+
+                <button class="filter-button" data-platform="18">
+                  PlayStation 4
+                </button>
+
+                <button class="filter-button" data-platform="1">
+                  Xbox One
+                </button>
+
+                <button class="filter-button" data-platform="7">
+                  Nintendo Switch
+                </button>
+              </div>
+            </div>
+
+            <div class="sort-group">
+              <label class="filter-label" for="sortSelect"> Сортировка </label>
+
+              <div class="sort-control">
+                <div class="select-wrapper">
+                  <select id="sortSelect">
+                    <option value="rating">По рейтингу</option>
+
+                    <option value="released">По дате выхода</option>
+
+                    <option value="added">По популярности</option>
+
+                    <option value="name">По названию</option>
+                  </select>
+
+                  <img
+                    src="./assets/svg/arrow-down-search.svg"
+                    class="select-arrow"
+                    alt=""
+                  />
+                </div>
+
+                <button
+                  type="button"
+                  id="sortDirection"
+                  class="sort-direction"
+                  aria-label="Изменить направление сортировки"
+                  title="Изменить направление сортировки"
+                >
+                  <img
+                    id="sortDirectionIcon"
+                    src="./assets/svg/arrow-up.svg"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+
+            <div class="view-group">
+              <span class="filter-label"> Игр в ряд </span>
+
+              <div class="view-buttons">
+                <button class="view-button" data-columns="3">3</button>
+
+                <button class="view-button active" data-columns="4">4</button>
+
+                <button class="view-button" data-columns="5">5</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="gamesContainer" class="games-grid">
+            <div class="loader">Загрузка игр...</div>
+          </div>
+
+          <div class="pagination">
+            <button id="prevButton" class="pagination__arrow" disabled>
+              ← Назад
+            </button>
+
+            <span id="pageNumber">1</span>
+
+            <button id="nextButton" class="pagination__arrow">Вперёд →</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 GameHub</p>
+        <p>Powered by RAWG</p>
+      </div>
+    </footer>
+
+    <script src="./js/theme.js"></script>
+    <script src="./js/api.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

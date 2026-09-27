@@ -1,0 +1,84 @@
+.favorites {
+  padding: 55px 0 70px;
+}
+
+.favorites .games-grid {
+  --columns: 4;
+  display: grid;
+  grid-template-columns: repeat(var(--columns), minmax(0, 1fr));
+  gap: 20px;
+}
+
+.favorite-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 210px;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.favorite-card:hover img {
+  transform: scale(1.06);
+}
+
+.favorite-card__content {
+  padding: 14px;
+}
+
+.favorite-card__title {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.favorite-card__meta {
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.empty-favorites {
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1100px) {
+  .favorites .games-grid {
+    --columns: 3;
+  }
+}
+
+@media (max-width: 800px) {
+  .favorites {
+    padding-top: 40px;
+  }
+
+  .favorites .games-grid {
+    --columns: 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .favorites .games-grid {
+    --columns: 1;
+  }
+}
